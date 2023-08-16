@@ -12,12 +12,16 @@ document.addEventListener("DOMContentLoaded", function () {
             const randomCountry = countries[randomIndex];
 
             randomCountryLoading.style.display = "flex";
-            randomCountryResult.innerHTML = "";
+
+            randomCountryResult.innerHTML = `
+                <img id="flag" src="https://flagcdn.com/${randomCountry.flag}.svg"/> 
+                <span>${randomCountry.country}</span>`;
+
+            randomCountryResult.style.visibility = " hidden";
 
             setTimeout(() => {
                randomCountryLoading.style.display = "none";
-               randomCountryResult.innerHTML = `
-                <span>${randomCountry.emoji} ${randomCountry.country}</span>`;
+               randomCountryResult.style.visibility = "visible";
             }, 1000);
          });
       })
