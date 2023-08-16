@@ -1,0 +1,95 @@
+@font-face {
+   font-family: "NeoSansPro";
+   src: url("fonts/NeoSansProRegular.OTF") format("opentype");
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "NeoSansProIt";
+   src: url("fonts/NeoSansProBoldIt.OTF") format("opentype");
+   font-weight: bold;
+   font-style: italic;
+}
+
+@font-face {
+   font-family: "NeoSansPro";
+   src: url("fonts/NeoSansProBold.OTF") format("opentype");
+   font-weight: bold;
+   font-style: normal;
+}
+
+:root {
+   --ds-color-purple-100: #1a1a2e;
+   --page-background-color: radial-gradient(66.5% 221.21% at 136.03% -61.44%, rgba(161, 155, 217, 0.4) 0%, rgba(161, 155, 217, 0) 92.09%), radial-gradient(93.54% 126.91% at 29.15% -56.29%, rgba(233, 69, 96, 0.7) 0%, rgba(233, 69, 96, 0) 92.09%), radial-gradient(86.19% 101.84% at -17.13% -24.8%, rgba(0, 162, 254, 0.7) 0%, rgba(0, 162, 254, 0) 92.09%), var(--ds-color-purple-100);
+   --background: var(--ds-color-green-80);
+   --box-shadow: 0 0.275rem 1.125rem rgba(0, 0, 0, 0.25), inset 0 0.0625rem 0 hsla(0, 0%, 100%, 0.2), inset 0 -0.125rem 0 rgba(0, 0, 0, 0.3);
+   --text-shadow: 0 0.0625rem 0.125rem var(--ds-color-purple-100);
+   --ds-color-green-80: #6cb928;
+   --ds-color-white-60: hsla(0, 0%, 100%, 0.6);
+}
+
+html {
+   background-color: var(--ds-color-purple-100);
+   background: var(--page-background-color);
+   width: 100%;
+   height: 100%;
+   color: white;
+   font-family: NeoSansPro, sans-serif;
+}
+
+h1 {
+   font-size: 38px;
+}
+
+.title {
+   display: flex;
+   gap: 16px;
+   justify-content: center;
+   align-items: center;
+}
+
+.title img {
+   height: 48px;
+   padding-bottom: 2px;
+}
+
+.button {
+   font-style: italic;
+   color: white;
+   text-transform: uppercase;
+   text-decoration: none;
+   font-size: 22px;
+   font-weight: bold;
+   padding: 20px 30px;
+   border-radius: 999px;
+   background: var(--background);
+   background-image: radial-gradient(150% 160% at 50% 15%, var(--ds-color-white-60) 0, transparent 30%);
+   transition: all 200ms;
+   -webkit-user-select: none; /* Safari */
+   -ms-user-select: none; /* IE 10 and IE 11 */
+   user-select: none; /* Standard syntax */
+}
+
+.button:hover {
+   font-size: 24px;
+   transition: all 200ms;
+}
+
+.generateButton {
+   margin-top: 100px;
+   display: flex;
+   justify-content: center;
+}
+
+.container {
+   margin: 40px 0px;
+   display: flex;
+   justify-content: center;
+   font-size: 48px;
+}
+
+#loader {
+   display: none;
+   justify-content: center;
+}
