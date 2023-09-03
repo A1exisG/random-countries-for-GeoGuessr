@@ -12,7 +12,6 @@
       <meta name="theme-color" content="#ffffff" />
       <title>Random game generator for Geoguessr</title>
       <link rel="stylesheet" href="style.css" />
-      <link rel="stylesheet" href="loader.css" />
    </head>
    <body>
       <main class="home">
@@ -22,31 +21,6 @@
                <a href="https://www.geoguessr.com/fr" target="_blank">
                   <img src="/src/logo_geoguessr.svg" alt="logo de geoguessr" />
                </a>
-            </div>
-
-            <div class="toolsbar">
-               <form action="" id="paramForm">
-                  <div>
-                     <label for="countrie" class="prevent-select">Random Countrie</label>
-                     <input type="checkbox" name="countrie" id="countrie" checked />
-                  </div>
-                  <div>
-                     <label for="time" class="prevent-select">Random Time</label>
-                     <input type="checkbox" name="time" id="time" checked />
-                  </div>
-                  <div>
-                     <label for="moving" class="prevent-select">Random Move</label>
-                     <input type="checkbox" name="time" id="moving" checked />
-                  </div>
-                  <div>
-                     <label for="panning" class="prevent-select">Random Pan </label>
-                     <input type="checkbox" name="time" id="panning" />
-                  </div>
-                  <div>
-                     <label for="zooming" class="prevent-select">Random Zoom</label>
-                     <input type="checkbox" name="time" id="zooming" />
-                  </div>
-               </form>
             </div>
          </div>
          <div class="loader" id="loader">
@@ -64,8 +38,68 @@
                <div class="flex-item" id="zoomingContainer"></div>
             </div>
          </div>
-         <div class="generateButton">
-            <button class="button" id="randomCountryButton">Create game</button>
+         <div class="flex-center">
+            <div class="generateButton">
+               <div class="toolsbar">
+                  <form action="" id="paramForm">
+                     <div>
+                        <label for="countrie" class="prevent-select">Random Countrie</label>
+                        <input type="checkbox" name="countrie" id="countrie" checked />
+                     </div>
+                     <div>
+                        <label for="time" class="prevent-select">Random Time</label>
+                        <input type="checkbox" name="time" id="time" checked />
+                     </div>
+                     <div>
+                        <label for="moving" class="prevent-select">Random Move</label>
+                        <input type="checkbox" name="time" id="moving" checked />
+                     </div>
+                     <div>
+                        <label for="panning" class="prevent-select">Random Pan </label>
+                        <input type="checkbox" name="time" id="panning" />
+                     </div>
+                     <div>
+                        <label for="zooming" class="prevent-select">Random Zoom</label>
+                        <input type="checkbox" name="time" id="zooming" />
+                     </div>
+                  </form>
+               </div>
+               <div class="toolsbar-mobile">
+                  <a id="openModal" class="button-2">Change settings</a>
+                  <div class="modal" id="modal">
+                     <div class="modal-inner">
+                        <form action="" id="paramForm">
+                           <div>
+                              <input type="checkbox" name="countrie" id="countrie-m" checked />
+                              <label for="countrie-m" class="prevent-select">Random Countrie</label>
+                           </div>
+                           <div>
+                              <input type="checkbox" name="time" id="time-m" checked />
+                              <label for="time-m" class="prevent-select">Random Time</label>
+                           </div>
+                           <div>
+                              <input type="checkbox" name="time" id="moving-m" checked />
+                              <label for="moving-m" class="prevent-select">Random Move</label>
+                           </div>
+                           <div>
+                              <input type="checkbox" name="time" id="panning-m" />
+                              <label for="panning-m" class="prevent-select">Random Pan </label>
+                           </div>
+                           <div>
+                              <input type="checkbox" name="time" id="zooming-m" />
+                              <label for="zooming-m" class="prevent-select">Random Zoom</label>
+                           </div>
+                        </form>
+                        <button id="closeModal">Close</button>
+                        <div class="footer">
+                           <span>Version 1.2.0 |</span>
+                           <span>By <a href="https://github.com/A1exisG" target="_blank">AlexisG</a></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <button class="button" id="randomCountryButton">Create game</button>
+            </div>
          </div>
       </main>
       <footer>

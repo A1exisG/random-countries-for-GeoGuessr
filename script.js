@@ -11,35 +11,68 @@ document.addEventListener("DOMContentLoaded", function () {
    randomCountryButton.addEventListener("click", () => {
       resultContainer.style.display = "none";
 
-      if (document.getElementById("countrie").checked) {
-         generateRandomCountrie();
-         randomCountryResult.style.display = "flex";
+      if (window.innerWidth >= 800) {
+         if (document.getElementById("countrie").checked) {
+            generateRandomCountrie();
+            randomCountryResult.style.display = "flex";
+         } else {
+            randomCountryResult.style.display = "none";
+         }
+         if (document.getElementById("time").checked) {
+            generateRandomTime(10, 600);
+            timeContainer.style.display = "flex";
+         } else {
+            timeContainer.style.display = "none";
+         }
+         if (document.getElementById("moving").checked) {
+            generateRandomMove();
+            movingContainer.style.display = "flex";
+         } else {
+            movingContainer.style.display = "none";
+         }
+         if (document.getElementById("panning").checked) {
+            generateRandomPan();
+            panningContainer.style.display = "flex";
+         } else {
+            panningContainer.style.display = "none";
+         }
+         if (document.getElementById("zooming").checked) {
+            generateRandomZoom();
+            zoomingContainer.style.display = "flex";
+         } else {
+            zoomingContainer.style.display = "none";
+         }
       } else {
-         randomCountryResult.style.display = "none";
-      }
-      if (document.getElementById("time").checked) {
-         generateRandomTime(10, 600);
-         timeContainer.style.display = "flex";
-      } else {
-         timeContainer.style.display = "none";
-      }
-      if (document.getElementById("moving").checked) {
-         generateRandomMove();
-         movingContainer.style.display = "flex";
-      } else {
-         movingContainer.style.display = "none";
-      }
-      if (document.getElementById("panning").checked) {
-         generateRandomPan();
-         panningContainer.style.display = "flex";
-      } else {
-         panningContainer.style.display = "none";
-      }
-      if (document.getElementById("zooming").checked) {
-         generateRandomZoom();
-         zoomingContainer.style.display = "flex";
-      } else {
-         zoomingContainer.style.display = "none";
+         if (document.getElementById("countrie-m").checked) {
+            generateRandomCountrie();
+            randomCountryResult.style.display = "flex";
+         } else {
+            randomCountryResult.style.display = "none";
+         }
+         if (document.getElementById("time-m").checked) {
+            generateRandomTime(10, 600);
+            timeContainer.style.display = "flex";
+         } else {
+            timeContainer.style.display = "none";
+         }
+         if (document.getElementById("moving-m").checked) {
+            generateRandomMove();
+            movingContainer.style.display = "flex";
+         } else {
+            movingContainer.style.display = "none";
+         }
+         if (document.getElementById("panning-m").checked) {
+            generateRandomPan();
+            panningContainer.style.display = "flex";
+         } else {
+            panningContainer.style.display = "none";
+         }
+         if (document.getElementById("zooming-m").checked) {
+            generateRandomZoom();
+            zoomingContainer.style.display = "flex";
+         } else {
+            zoomingContainer.style.display = "none";
+         }
       }
 
       randomCountryButton.disabled = true;
@@ -132,3 +165,29 @@ document.addEventListener("DOMContentLoaded", function () {
       }
    }
 });
+
+const openBtn = document.getElementById("openModal");
+const closeBtn = document.getElementById("closeModal");
+const modal = document.getElementById("modal");
+
+openBtn.addEventListener("click", () => {
+   modal.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+   modal.classList.remove("open");
+});
+
+// function detachDivOnSmallScreen() {
+//    if (window.innerWidth <= 800) {
+//       $(".toolsbar").detach();
+//    } else {
+//       // Réattacher la div à la fin du body lorsque la largeur est supérieure à 800px
+//       $("body").append($(".toolsbar"));
+//    }
+// }
+
+// // Appeler la fonction initiale et ajouter un écouteur d'événement pour redéclencher
+// // lorsque la taille de l'écran change
+// detachDivOnSmallScreen();
+// $(window).on("resize", detachDivOnSmallScreen);
