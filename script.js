@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       if (window.innerWidth >= 800) {
-         handleOption("countrie", "randomCountryResult", generateRandomCountrie);
+         handleOption("country", "randomCountryResult", generateRandomCountry);
          handleOption("time", "timeContainer", () => generateRandomTime(10, 600));
          handleOption("moving", "movingContainer", generateRandomMove);
          handleOption("panning", "panningContainer", generateRandomPan);
          handleOption("zooming", "zoomingContainer", generateRandomZoom);
       } else {
-         handleOption("countrie-m", "randomCountryResult", generateRandomCountrie);
+         handleOption("country-m", "randomCountryResult", generateRandomCountry);
          handleOption("time-m", "timeContainer", () => generateRandomTime(10, 600));
          handleOption("moving-m", "movingContainer", generateRandomMove);
          handleOption("panning-m", "panningContainer", generateRandomPan);
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 1000);
    });
 
-   function generateRandomCountrie() {
+   function generateRandomCountry() {
       fetch("countries.json")
          .then((response) => response.json())
          .then((countries) => {

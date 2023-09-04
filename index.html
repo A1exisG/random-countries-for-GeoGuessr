@@ -10,7 +10,8 @@
       <link rel="mask-icon" href="./src/favicon/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-      <title>Random game generator for Geoguessr</title>
+      <title>Random party generator for Geoguessr</title>
+      <meta name="description" content="This tool lets you generate random geoguessr parties for more fun and challenge with your friends or solo." />
       <link rel="stylesheet" href="style.css" />
    </head>
    <body>
@@ -43,8 +44,8 @@
                <div class="toolsbar">
                   <form action="" id="paramForm">
                      <div>
-                        <label for="countrie" class="prevent-select">Random Countrie</label>
-                        <input type="checkbox" name="countrie" id="countrie" checked />
+                        <label for="country" class="prevent-select">Random Country</label>
+                        <input type="checkbox" name="country" id="country" checked />
                      </div>
                      <div>
                         <label for="time" class="prevent-select">Random Time</label>
@@ -70,8 +71,8 @@
                      <div class="modal-inner">
                         <form action="" id="paramForm">
                            <div>
-                              <input type="checkbox" name="countrie" id="countrie-m" checked />
-                              <label for="countrie-m" class="prevent-select">Random Countrie</label>
+                              <input type="checkbox" name="country" id="country-m" checked />
+                              <label for="country-m" class="prevent-select">Random Country</label>
                            </div>
                            <div>
                               <input type="checkbox" name="time" id="time-m" checked />
@@ -92,13 +93,13 @@
                         </form>
                         <button id="closeModal">Close</button>
                         <div class="footer">
-                           <span>Version 1.2.0 |</span>
+                           <span>Version 1.2.1 |</span>
                            <span>By <a href="https://github.com/A1exisG" target="_blank">AlexisG</a></span>
                         </div>
                      </div>
                   </div>
                </div>
-               <button class="button" id="randomCountryButton">Create game</button>
+               <button class="button" id="randomCountryButton">Create Party</button>
             </div>
          </div>
       </main>
