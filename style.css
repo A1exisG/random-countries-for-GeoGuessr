@@ -213,7 +213,7 @@ input:checked {
 }
 
 .modal {
-   background-color: rgba(16, 16, 27, 0.85);
+   background-color: rgba(16, 16, 27, 0.9);
    position: fixed;
    width: 100vw;
    height: 100vh;
