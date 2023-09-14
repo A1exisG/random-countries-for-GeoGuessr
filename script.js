@@ -53,16 +53,45 @@ document.addEventListener("DOMContentLoaded", function () {
       }, 1000);
    });
 
+   // function generateRandomCountry() {
+   //    fetch("countries.json")
+   //       .then((response) => response.json())
+   //       .then((countries) => {
+   //          const randomIndex = Math.floor(Math.random() * countries.length);
+   //          const randomCountry = countries[randomIndex];
+
+   //          randomCountryResult.innerHTML = `
+   //              <img id="flag" src="https://flagcdn.com/${randomCountry.flag}.svg" alt="flag of ${randomCountry.country}" class="prevent-select"/>
+   //              <span>${randomCountry.country}</span>`;
+   //       });
+   // }
+
    function generateRandomCountry() {
-      fetch("countries.json")
-         .then((response) => response.json())
-         .then((countries) => {
-            const randomIndex = Math.floor(Math.random() * countries.length);
-            const randomCountry = countries[randomIndex];
+      const proxyUrl = "http://127.0.0.1:3000/api-data";
+
+      fetch(proxyUrl)
+         .then((response) => {
+            if (response.ok) {
+               return response.json();
+            } else {
+               throw new Error("Erreur lors de la récupération des données depuis le serveur proxy");
+            }
+         })
+         .then((data) => {
+            // console.log("Données reçues depuis le serveur proxy :", data);
+            const randomIndex = Math.floor(Math.random() * data.length);
+            const randomCountry = data[randomIndex];
 
             randomCountryResult.innerHTML = `
-                <img id="flag" src="https://flagcdn.com/${randomCountry.flag}.svg" alt="flag of ${randomCountry.country}" class="prevent-select"/> 
-                <span>${randomCountry.country}</span>`;
+                         <img id="flag" src="https://www.geoguessr.com/images/auto/140/140/ce/0/plain/${randomCountry.images.backgroundLarge}" alt="Image of ${randomCountry.name}" class="prevent-select"/> 
+                         <div class="flex-difficulty-title">
+                           <img src="./src/difficulty-${randomCountry.difficultyLevel}.svg" alt="Icon difficulty ${randomCountry.difficultyLevel}" class="icon-difficulty"/>
+                           <span>${randomCountry.name}</span>
+                        </div>
+                         `;
+         })
+         .catch((error) => {
+            console.error("Erreur lors de la requête vers le serveur proxy :", error);
          });
    }
 
