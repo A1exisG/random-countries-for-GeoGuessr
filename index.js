@@ -6,6 +6,11 @@ const app = express();
 const port = 3000;
 
 app.use(cors());
+app.use(express.static("public"));
+
+app.get("/", function (req, res) {
+   res.sendFile("public/index.html");
+});
 
 app.get("/api-data", async (req, res) => {
    try {

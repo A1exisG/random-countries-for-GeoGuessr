@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
             randomCountryResult.innerHTML = `
                          <img id="flag" src="https://www.geoguessr.com/images/auto/140/140/ce/0/plain/${randomCountry.images.backgroundLarge}" alt="Image of ${randomCountry.name}" class="prevent-select"/> 
                          <div class="flex-difficulty-title">
-                           <img src="./src/difficulty-${randomCountry.difficultyLevel}.svg" alt="Icon difficulty ${randomCountry.difficultyLevel}" class="icon-difficulty"/>
+                           <img src="./img/difficulty-${randomCountry.difficultyLevel}.svg" alt="Icon difficulty ${randomCountry.difficultyLevel}" class="icon-difficulty"/>
                            <span>${randomCountry.name}</span>
                         </div>
                          `;
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
          result += `${seconds} sec`;
       }
 
-      timeContainer.innerHTML = `<img src="src/time-limit.png" alt="Icon time limit" style="height: 30px" />
+      timeContainer.innerHTML = `<img src="img/time-limit.png" alt="Icon time limit" style="height: 30px" />
       ${result}`;
 
       // return formattedDuration;
@@ -124,10 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const moving = Math.random() < 0.5;
 
       if (moving === true) {
-         movingContainer.innerHTML = `<img src="src/moving-allowed.png" alt="Icon moving allowed" style="height: 30px"/>
+         movingContainer.innerHTML = `<img src="img/moving-allowed.png" alt="Icon moving allowed" style="height: 30px"/>
          moving allowed`;
       } else if (moving == false) {
-         movingContainer.innerHTML = `<img src="src/no-move.png" alt="Icon no move" style="height: 30px"/>
+         movingContainer.innerHTML = `<img src="img/no-move.png" alt="Icon no move" style="height: 30px"/>
          no move`;
       }
    }
@@ -136,10 +136,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const panning = Math.random() < 0.5;
 
       if (panning === true) {
-         panningContainer.innerHTML = `<img src="src/panning-allowed.png" alt="Icon panning allowed" style="height: 30px"/>
+         panningContainer.innerHTML = `<img src="img/panning-allowed.png" alt="Icon panning allowed" style="height: 30px"/>
          panning allowed`;
       } else if (panning == false) {
-         panningContainer.innerHTML = `<img src="src/no-pan.png" alt="Icon no pan" style="height: 30px"/>
+         panningContainer.innerHTML = `<img src="img/no-pan.png" alt="Icon no pan" style="height: 30px"/>
          no pan`;
       }
    }
@@ -148,10 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const zooming = Math.random() < 0.5;
 
       if (zooming === true) {
-         zoomingContainer.innerHTML = `<img src="src/zooming-allowed.png" alt="Icon zooming allowed" style="height: 30px"/>
+         zoomingContainer.innerHTML = `<img src="img/zooming-allowed.png" alt="Icon zooming allowed" style="height: 30px"/>
          zooming allowed`;
       } else if (zooming == false) {
-         zoomingContainer.innerHTML = `<img src="src/no-zoom.png" alt="Icon no zoom" style="height: 30px"/>
+         zoomingContainer.innerHTML = `<img src="img/no-zoom.png" alt="Icon no zoom" style="height: 30px"/>
          no zoom`;
       }
    }
