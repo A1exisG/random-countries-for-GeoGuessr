@@ -4,7 +4,7 @@
    "description": "",
    "main": "index.js",
    "scripts": {
-      "dev": "nodemon .",
+      "dev": "nodemon -e js,html,css",
       "sass": "sass --watch public/scss/:public/"
    },
    "keywords": [],

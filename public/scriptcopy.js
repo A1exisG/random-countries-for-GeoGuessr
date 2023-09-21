@@ -57,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
       randomPartyButton.disabled = true;
       randomPartyButton.style.cursor = "not-allowed";
       randomPartyButton.style.background = "#4a4a4a";
-      randomPartyButton.style.backgroundImage = "radial-gradient(150% 160% at 50% 15%, hsla(0, 0%, 100%, 0.6) 0, transparent 30%)";
       loader.style.display = "flex";
 
       setTimeout(() => {
@@ -65,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
          randomPartyButton.disabled = false;
          randomPartyButton.style.cursor = "initial";
          randomPartyButton.style.background = "#6cb928";
-         randomPartyButton.style.backgroundImage = "radial-gradient(150% 160% at 50% 15%, hsla(0, 0%, 100%, 0.6) 0, transparent 30%)";
          // resultMap.style.display = "flex";
          // resultOptions.style.display = "flex";
          result.style.display = "flex";

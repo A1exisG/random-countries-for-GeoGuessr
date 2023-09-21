@@ -182,6 +182,12 @@ main {
    border-radius: 10px;
 
    flex-wrap: wrap;
+
+   div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+   }
 }
 
 .buttons-section > a {
@@ -199,6 +205,35 @@ footer {
 
    a {
       color: rgba(255, 255, 255, 0.3);
+   }
+}
+
+input[type="checkbox"] {
+   appearance: none;
+   -webkit-appearance: none;
+   height: 22px;
+   width: 22px;
+   border-radius: 4px;
+   background-color: transparent;
+   border: solid 3px $primary-purple;
+   display: flex;
+   justify-content: center;
+
+   &:after {
+      font-family: "Font Awesome 6 Free";
+      font-size: 16px;
+      font-weight: 900;
+      content: "\f00c";
+      color: white;
+      display: none;
+   }
+
+   &:checked {
+      background-color: $primary-purple;
+   }
+
+   &:checked:after {
+      display: block;
    }
 }
 

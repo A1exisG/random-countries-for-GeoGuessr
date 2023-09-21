@@ -157,6 +157,11 @@ main {
   border-radius: 10px;
   flex-wrap: wrap;
 }
+.random-form div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
 .buttons-section > a {
   display: none;
@@ -172,6 +177,32 @@ footer {
 }
 footer a {
   color: rgba(255, 255, 255, 0.3);
+}
+
+input[type=checkbox] {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 4px;
+  background-color: transparent;
+  border: solid 3px #7950e5;
+  display: flex;
+  justify-content: center;
+}
+input[type=checkbox]:after {
+  font-family: "Font Awesome 6 Free";
+  font-size: 16px;
+  font-weight: 900;
+  content: "\f00c";
+  color: white;
+  display: none;
+}
+input[type=checkbox]:checked {
+  background-color: #7950e5;
+}
+input[type=checkbox]:checked:after {
+  display: block;
 }
 
 /* Loader CSS */
