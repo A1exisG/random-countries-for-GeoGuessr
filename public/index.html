@@ -23,7 +23,7 @@
             <div class="options"></div>
          </section>
          <section class="tools-bar">
-            <div class="random-form">
+            <div class="random-form" id="modal">
                <div>
                   <input type="checkbox" name="map" id="map" checked />
                   <label for="map" class="prevent-select">Random Map</label>
@@ -37,13 +37,17 @@
                   <label for="moving" class="prevent-select">Random Move</label>
                </div>
                <div>
-                  <input type="checkbox" name="pan" id="panning" />
+                  <input type="checkbox" name="pan" id="panning" checked />
                   <label for="panning" class="prevent-select">Random Pan </label>
                </div>
                <div>
-                  <input type="checkbox" name="zoom" id="zooming" />
+                  <input type="checkbox" name="zoom" id="zooming" checked />
                   <label for="zooming" class="prevent-select">Random Zoom</label>
                </div>
+               <section class="mobile">
+                  <button id="closeModal">Close</button>
+                  <span>Version 1.3.0 | By <a href="https://github.com/A1exisG" target="_blank">AlexisG</a></span>
+               </section>
             </div>
             <div class="buttons-section">
                <a class="secondary-button" id="openModal">Change settings</a>

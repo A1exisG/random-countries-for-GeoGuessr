@@ -8,37 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
    const result = document.querySelector(".result");
 
    randomPartyButton.addEventListener("click", () => {
-      // resultMap.style.display = "none";
-      // resultOptions.style.display = "none";
       resultMap.innerHTML = "";
       resultOptions.innerHTML = "";
       result.style.display = "none";
-
-      // function handleOption(optionId, resultContainerId, generateFunction) {
-      //    const optionCheckbox = document.getElementById(optionId);
-      //    const resultContainer = document.getElementById(resultContainerId);
-
-      //    if (optionCheckbox.checked) {
-      //       generateFunction();
-      //       resultContainer.style.display = "flex";
-      //    } else {
-      //       resultContainer.style.display = "none";
-      //    }
-      // }
-
-      // if (window.innerWidth >= 800) {
-      //    handleOption("country", "randomCountryResult", generateRandomCountry);
-      //    handleOption("time", "timeContainer", () => generateRandomTime(10, 600));
-      //    handleOption("moving", "movingContainer", generateRandomMove);
-      //    handleOption("panning", "panningContainer", generateRandomPan);
-      //    handleOption("zooming", "zoomingContainer", generateRandomZoom);
-      // } else {
-      //    handleOption("country-m", "randomCountryResult", generateRandomCountry);
-      //    handleOption("time-m", "timeContainer", () => generateRandomTime(10, 600));
-      //    handleOption("moving-m", "movingContainer", generateRandomMove);
-      //    handleOption("panning-m", "panningContainer", generateRandomPan);
-      //    handleOption("zooming-m", "zoomingContainer", generateRandomZoom);
-      // }
 
       // Fonction générique pour gérer l'affichage en fonction de l'état de la case à cocher
       function toggleDisplay(checkbox, generateFunction) {
@@ -64,24 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
          randomPartyButton.disabled = false;
          randomPartyButton.style.cursor = "initial";
          randomPartyButton.style.background = "#6cb928";
-         // resultMap.style.display = "flex";
-         // resultOptions.style.display = "flex";
          result.style.display = "flex";
       }, 1000);
    });
-
-   // function generateRandomCountry() {
-   //    fetch("countries.json")
-   //       .then((response) => response.json())
-   //       .then((countries) => {
-   //          const randomIndex = Math.floor(Math.random() * countries.length);
-   //          const randomCountry = countries[randomIndex];
-
-   //          randomCountryResult.innerHTML = `
-   //              <img id="flag" src="https://flagcdn.com/${randomCountry.flag}.svg" alt="flag of ${randomCountry.country}" class="prevent-select"/>
-   //              <span>${randomCountry.country}</span>`;
-   //       });
-   // }
 
    function generateRandomMap() {
       const proxyUrl = "http://127.0.0.1:3000/api-data";
@@ -105,13 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
                   <span class="name">${randomMap.name}</span>
                   <div class="difficulty">
                      <img src="./img/difficulty-${randomMap.difficultyLevel}.svg" alt="Icon difficulty ${randomMap.difficultyLevel}" />
-                     <span>${randomMap.difficulty}</span>
-                     <span>AVG. SCORE ${randomMap.averageScore}</span>
+                     <span>${randomMap.difficulty} <span>AVG. SCORE ${randomMap.averageScore}</span></span>
                   </div>
                   <div class="coordinate-count">
                      <img src="./img/location-icon.svg" alt="Icon of earth with pin" />
-                     <span>${randomMap.coordinateCount}</span>
-                     <span>LOCATIONS</span>
+                     <span>${randomMap.coordinateCount} <span>LOCATIONS</span></span>
                   </div>
                </div>
                          `;
@@ -213,28 +168,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Gérer la modal pour la tools bar mobile
 
-// const openBtn = document.getElementById("openModal");
-// const closeBtn = document.getElementById("closeModal");
-// const modal = document.getElementById("modal");
+const openBtn = document.getElementById("openModal");
+const closeBtn = document.getElementById("closeModal");
+const modal = document.getElementById("modal");
 
-// openBtn.addEventListener("click", () => {
-//    modal.classList.add("open");
-// });
+openBtn.addEventListener("click", () => {
+   modal.style.display = "flex";
+   // modal.classList.add("open");
+});
 
-// closeBtn.addEventListener("click", () => {
-//    modal.classList.remove("open");
-// });
+closeBtn.addEventListener("click", () => {
+   modal.style.display = "none";
+   // modal.classList.remove("open");
+});
 
-// function detachDivOnSmallScreen() {
-//    if (window.innerWidth <= 800) {
-//       $(".toolsbar").detach();
-//    } else {
-//       // Réattacher la div à la fin du body lorsque la largeur est supérieure à 800px
-//       $("body").append($(".toolsbar"));
-//    }
-// }
+// Sélectionnez les cases à cocher
+const mapCheckbox = document.getElementById("map");
+const timeCheckbox = document.getElementById("time");
+const movingCheckbox = document.getElementById("moving");
+const panningCheckbox = document.getElementById("panning");
+const zoomingCheckbox = document.getElementById("zooming");
 
-// // Appeler la fonction initiale et ajouter un écouteur d'événement pour redéclencher
-// // lorsque la taille de l'écran change
-// detachDivOnSmallScreen();
-// $(window).on("resize", detachDivOnSmallScreen);
+// Fonction pour enregistrer l'état de la case à cocher dans le localStorage
+function saveCheckboxState(checkbox) {
+   localStorage.setItem(checkbox.id, checkbox.checked);
+}
+
+// Fonction pour charger l'état de la case à cocher depuis le localStorage
+function loadCheckboxState(checkbox) {
+   const savedState = localStorage.getItem(checkbox.id);
+   if (savedState !== null) {
+      checkbox.checked = savedState === "true"; // Convertir la chaîne en booléen
+   }
+}
+
+// Chargez l'état des cases à cocher lors du chargement de la page
+loadCheckboxState(mapCheckbox);
+loadCheckboxState(timeCheckbox);
+loadCheckboxState(movingCheckbox);
+loadCheckboxState(panningCheckbox);
+loadCheckboxState(zoomingCheckbox);
+
+// Écoutez les changements d'état des cases à cocher et enregistrez-les
+mapCheckbox.addEventListener("change", () => {
+   saveCheckboxState(mapCheckbox);
+});
+
+timeCheckbox.addEventListener("change", () => {
+   saveCheckboxState(timeCheckbox);
+});
+
+movingCheckbox.addEventListener("change", () => {
+   saveCheckboxState(movingCheckbox);
+});
+
+panningCheckbox.addEventListener("change", () => {
+   saveCheckboxState(panningCheckbox);
+});
+
+zoomingCheckbox.addEventListener("change", () => {
+   saveCheckboxState(zoomingCheckbox);
+});

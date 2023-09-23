@@ -31,19 +31,31 @@ $primary-green: #6cb928;
 $primary-purple: #7950e5;
 
 html {
-   width: 100%;
-   height: 100%;
+   width: 100vw;
+   height: 100vh;
    background: $background-gradient;
    font-family: NeoSansPro, sans-serif;
    font-weight: bold;
    color: white;
    text-transform: uppercase;
    overflow: hidden;
+   background-size: auto 100%;
+   background-repeat: no-repeat;
+   background-position: left top;
 }
 
 #loader {
    display: none;
    justify-content: center;
+}
+
+label,
+button,
+header,
+.secondary-button {
+   -webkit-user-select: none; /* Safari */
+   -ms-user-select: none; /* IE 10 and IE 11 */
+   user-select: none; /* Standard syntax */
 }
 
 header {
@@ -86,6 +98,32 @@ header {
 
 .secondary-button {
    text-align: center;
+   padding: 10px 24px;
+   border-radius: 60px;
+   border: 1px solid rgba(255, 255, 255, 0.8);
+   background: rgba(255, 255, 255, 0.01);
+   backdrop-filter: blur(9.5px);
+
+   font-size: 12px;
+   font-style: italic;
+
+   transition: all 200ms;
+
+   &:hover {
+      transform: scale(1.1);
+      transition: all 200ms;
+   }
+   &:active {
+      transform: scale(1);
+      transition: all 200ms;
+   }
+}
+
+.buttons-section {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 18px;
 }
 
 main {
@@ -107,6 +145,7 @@ main {
    > img {
       height: 220px;
       width: 220px;
+      aspect-ratio: 1/1;
       border-radius: 999px;
       object-fit: cover;
    }
@@ -128,7 +167,7 @@ main {
 
       font-size: 18px;
 
-      :last-child {
+      :last-child span {
          color: #a19bd9;
       }
    }
@@ -143,11 +182,17 @@ main {
    justify-content: center;
    gap: 20px;
    flex-wrap: wrap;
+   margin: 0 auto;
+   padding: 0 20px;
 
    div {
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: nowrap;
+      flex-grow: 1;
+      min-width: 200px;
+      justify-content: center;
 
       background-color: rgba(255, 255, 255, 0.1);
       padding: 14px 24px;
@@ -237,8 +282,108 @@ input[type="checkbox"] {
    }
 }
 
-/* Loader CSS */
+.mobile {
+   display: none;
+   flex-direction: column;
+   margin-top: 40px;
+   gap: 30px !important;
 
+   #closeModal {
+      font-family: NeoSansPro, sans-serif;
+      font-style: italic;
+      color: white;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 20px 60px;
+      border-radius: 999px;
+      text-align: center;
+      background: #43454b;
+      border: none;
+
+      &:hover {
+         transform: scale(1.1);
+         transition: all 200ms;
+      }
+      &:active {
+         transform: scale(1);
+         transition: all 200ms;
+      }
+   }
+
+   span {
+      color: rgba(255, 255, 255, 0.3);
+      font-weight: normal;
+      font-style: italic;
+
+      a {
+         color: rgba(255, 255, 255, 0.3);
+      }
+   }
+}
+
+@media (min-width: 1001px) {
+   .random-form {
+      display: flex !important;
+   }
+}
+
+@media (max-width: 1000px) {
+   html {
+      overflow-y: auto;
+   }
+
+   .random-form {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0px;
+      z-index: 999;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+      align-items: center;
+      gap: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+
+      .mobile {
+         display: flex;
+      }
+   }
+
+   .buttons-section > a {
+      display: block;
+   }
+
+   .result {
+      padding-bottom: 180px;
+   }
+
+   footer {
+      display: none;
+   }
+}
+
+@media (max-width: 600px) {
+   .map {
+      flex-direction: column;
+
+      div {
+         align-items: center;
+      }
+   }
+
+   main {
+      margin-top: 60px;
+   }
+}
+
+/* Loader CSS */
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Indie+Flower");
 
