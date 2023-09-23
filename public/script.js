@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             resultMap.innerHTML = `                        
                <img src="https://www.geoguessr.com/images/auto/220/220/ce/0/plain/${randomMap.images.backgroundLarge}" alt="Image of ${randomMap.name}" />
                <div>
-                  <span class="name">${randomMap.name}</span>
+                  <span class="name">${randomMap.name} <a href="https://www.geoguessr.com/maps${randomMap.playUrl}" target="_blank"><img src="./img/ext-link-icon.svg" alt="External Link Icon"/> </a></span>
                   <div class="difficulty">
                      <img src="./img/difficulty-${randomMap.difficultyLevel}.svg" alt="Icon difficulty ${randomMap.difficultyLevel}" />
                      <span>${randomMap.difficulty} <span>AVG. SCORE ${randomMap.averageScore}</span></span>

@@ -137,6 +137,9 @@ main {
 .map .name {
   font-size: 26px;
 }
+.map .name a {
+  margin-left: 6px;
+}
 .map > div {
   display: flex;
   flex-direction: column;
@@ -326,6 +329,9 @@ input[type=checkbox]:checked:after {
 @media (max-width: 600px) {
   .map {
     flex-direction: column;
+  }
+  .map .name {
+    text-align: center;
   }
   .map div {
     align-items: center;

@@ -152,6 +152,10 @@ main {
 
    .name {
       font-size: 26px;
+
+      a {
+         margin-left: 6px;
+      }
    }
 
    > div {
@@ -372,6 +376,10 @@ input[type="checkbox"] {
 @media (max-width: 600px) {
    .map {
       flex-direction: column;
+
+      .name {
+         text-align: center;
+      }
 
       div {
          align-items: center;
