@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
    });
 
    function generateRandomMap() {
-      const proxyUrl = "http://127.0.0.1:3000/api-data";
+      const proxyUrl = "/api-data";
 
       fetch(proxyUrl)
          .then((response) => {
