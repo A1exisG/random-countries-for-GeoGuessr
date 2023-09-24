@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else if (zooming == false) {
          resultOptions.innerHTML += `
          <div>
-            <img src="./img/no-pan.png" alt="Icon no zoom" />
+            <img src="./img/no-zoom.png" alt="Icon no zoom" />
             <span>no zoom</span>
          </div>
          `;
