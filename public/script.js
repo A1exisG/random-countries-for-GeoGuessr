@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const randomMap = data[randomIndex];
 
             resultMap.innerHTML = `                        
-               <img src="https://www.geoguessr.com/images/auto/220/220/ce/0/plain/${randomMap.images.backgroundLarge}" alt="Image of ${randomMap.name}" />
+               <img src="https://www.geoguessr.com/images/resize:auto:220:220/gravity:ce/plain/${randomMap.images.backgroundLarge}" alt="Image of ${randomMap.name}" />
                <div>
                   <span class="name">${randomMap.name} <a href="https://www.geoguessr.com${randomMap.url}" target="_blank"><img src="./img/ext-link-icon.svg" alt="External Link Icon"/> </a></span>
                   <div class="difficulty">
