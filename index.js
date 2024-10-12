@@ -1,39 +1,36 @@
-const express = require("express");
-const cors = require("cors");
-const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
+const express = require('express');
+const cors = require('cors');
+const fetch = require('node-fetch');  // Utilise require pour node-fetch v2
 
 const app = express();
-const port = 3300;
 
+// Middleware
 app.use(cors());
-app.use(express.static("public"));
+app.use(express.static('public'));
 
-app.get("/", function (req, res) {
-   res.sendFile("public/index.html");
+// Route par défaut (pour servir le frontend)
+app.get("/", (req, res) => {
+   res.sendFile(__dirname + '/public/index.html');
 });
 
+// API pour récupérer des données depuis GeoGuessr
 app.get("/api-data", async (req, res) => {
    try {
-      // Tableau pour stocker les réponses
       let responseData = [];
 
-      // Fonction pour effectuer une requête et concaténer les données
       const fetchData = async (page) => {
          const response = await fetch(`https://geoguessr.com/api/v3/social/maps/browse/popular/official?count=54&page=${page}`);
          const data = await response.json();
          responseData = responseData.concat(data);
       };
 
-      // Effectuer les requêtes en parallèle
       const promises = [];
       for (let page = 0; page < 3; page++) {
          promises.push(fetchData(page));
       }
 
-      // Attendre que toutes les réponses soient reçues
       await Promise.all(promises);
 
-      // Envoyer le tableau contenant toutes les données
       res.json(responseData);
    } catch (error) {
       console.error("Erreur lors de la requête vers l'API externe :", error);
@@ -41,6 +38,5 @@ app.get("/api-data", async (req, res) => {
    }
 });
 
-app.listen(port, () => {
-   console.log(`Serveur proxy en cours d'exécution sur le port ${port}`);
-});
+// Exportation de l'application pour Vercel
+module.exports = app;  // Pas de app.listen(), Vercel gère cela pour toi
